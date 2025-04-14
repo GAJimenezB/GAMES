@@ -3,7 +3,7 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Inicialización de la base de datos
+# init database
 def init_db():
     conn = sqlite3.connect('moves.db')
     c = conn.cursor()
@@ -19,7 +19,7 @@ def init_db():
     conn.commit()
     conn.close()
 
-# Guardar un movimiento en la base de datos
+# save moves on database
 def save_move(direccion, x, y, shoot):
     conn = sqlite3.connect('moves.db')
     c = conn.cursor()
@@ -30,7 +30,7 @@ def save_move(direccion, x, y, shoot):
     conn.commit()
     conn.close()
 
-# Ruta para guardar un movimiento
+# route for saving moves
 @app.route('/moves', methods=['POST'])
 def movimiento():
     data = request.get_json()
@@ -42,5 +42,5 @@ def movimiento():
     return jsonify({"message": "Move saved correctly"}), 200
 
 if __name__ == "__main__":
-    init_db()  # Inicializa la base de datos
+    init_db()
     app.run(debug=True, host='0.0.0.0', port=5000)
