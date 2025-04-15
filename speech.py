@@ -18,7 +18,7 @@ mic = sr.Microphone()
 if response.status_code == 200:
     temperature = data["main"]["temp"]
 else:
-    print(f"Error: No se pudo obtener la información para {city}.")
+    print(f"Error: Was nos possible to get the info of {city}.")
 while(True):
     with mic as source:
         recognizer.adjust_for_ambient_noise(source)
@@ -30,7 +30,7 @@ while(True):
     if text == "time":
         print("Time:", time)
     elif text == "temperature":
-        print(f"The temperatura in {city} is: {temperature}°C")
+        print(f"The temperature in {city} is: {temperature}°C")
     elif text == "open mail":
         webbrowser.open("https://mail.google.com")
         print("Open mail...")
