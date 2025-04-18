@@ -5,7 +5,7 @@ import requests
 
 
 time = datetime.now().strftime("%H:%M:%S")
-api_key = "7d2b62e49e8195e515fa1e3e0c4949e0"
+api_key = "" # API KEY
 city = "Luxembourg"
 
 url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric&lang=es"
